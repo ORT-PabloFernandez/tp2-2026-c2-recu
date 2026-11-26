@@ -1,4 +1,4 @@
-import { getListings, getListingById, getListingsByCountryService } from "../services/listingsService.js";
+import { getListings, getListingById, getListingsByCountryService, getListingTotalPrice } from "../services/listingsService.js";
 
 export const getAllListings = async (req, res) => {
     try {
@@ -41,3 +41,19 @@ export const getListingsByCountry = async (req, res) => {
     }
 }
 
+export const getListingTotalPriceController = async (req, res) => {
+    try {
+        const listing = await getListingTotalPrice(req.params.id);
+        
+        if(!listing){
+            return res.status(404).json({
+                message: "Propiedad no encontrada"
+            });
+        }
+
+        return res.json(listing);
+    } catch (error) {
+        console.log("Error fetching listings: ", error);
+        res.status(500).json({ message: "Internal server error" })
+    }
+}

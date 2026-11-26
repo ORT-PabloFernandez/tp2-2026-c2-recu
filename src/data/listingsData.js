@@ -46,9 +46,8 @@ export async function findListingById(id) {
     return listing;
 }
 
-export async function findListingsByCountry(country){
+export async function findListingsByCountry(country) {
     const db = getDb();
-    console.log("Pais recibido: ", country);
     const listings = await db.collection("listingsAndReviews")
         .find(
             { "address.country": country}

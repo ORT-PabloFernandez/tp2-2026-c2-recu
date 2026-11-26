@@ -55,8 +55,10 @@ Si ya terminaste o son las 21:00 asegurate de seguir los siguientes pasos para l
 - GET /api/users/:id - Obtener un usuario específico por ID (requiere autenticación)
 
 ### Endpoints de listings/propiedades:
-- GET /api/listings?pageSize=[pageSize]&page=[page] - Obtener todas las propiedades con paginación opcional
+- GET /api/listings?pageSize=[pageSize]&page=[page]&property_type=[propertyType] - Obtener todas las propiedades con paginación y seleccion de tipo de propiedad opcionales 
 - GET /api/listings/:id - Obtener una propiedad específica por ID
+- GET /api/listings/:id/total-price - obtener precio total por id de propiedad
+- GET /api/listings/country/:country - obtener propiedades por pais donde se encuentran
 
 ### Endpoint base:
 - GET / - Mensaje de bienvenida de la API
