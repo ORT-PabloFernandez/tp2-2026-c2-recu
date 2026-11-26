@@ -4,7 +4,8 @@ export const getAllListings = async (req, res) => {
     try {
         const page = req.query.page ? parseInt(req.query.page) : undefined;
         const pageSize = req.query.pageSize ? parseInt(req.query.pageSize) : undefined;
-        const listings = await getListings(page, pageSize);
+        const propertyType = req.query.property_type ? req.query.property_type : undefined;
+        const listings = await getListings(page, pageSize, propertyType);
         res.json(listings);
     } catch (error) {
         console.log("Error fetching listings: ", error);
