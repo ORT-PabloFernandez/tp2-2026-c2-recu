@@ -45,3 +45,14 @@ export async function findListingById(id) {
     console.log(listing);
     return listing;
 }
+
+export async function findListingsByCountry(country){
+    const db = getDb();
+    console.log("Pais recibido: ", country);
+    const listings = await db.collection("listingsAndReviews")
+        .find(
+            { "address.country": country}
+        )
+        .toArray();
+    return listings;
+}

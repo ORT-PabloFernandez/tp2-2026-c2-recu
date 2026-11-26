@@ -1,4 +1,4 @@
-import { getListings, getListingById } from "../services/listingsService.js";
+import { getListings, getListingById, getListingsByCountryService } from "../services/listingsService.js";
 
 export const getAllListings = async (req, res) => {
     try {
@@ -6,7 +6,7 @@ export const getAllListings = async (req, res) => {
         const pageSize = req.query.pageSize ? parseInt(req.query.pageSize) : undefined;
         const propertyType = req.query.property_type ? req.query.property_type : undefined;
         const listings = await getListings(page, pageSize, propertyType);
-        res.json(listings);
+            res.json(listings);
     } catch (error) {
         console.log("Error fetching listings: ", error);
         res.status(500).json({ message: "Internal server error" });
@@ -18,10 +18,26 @@ export const getListingId = async (req, res) => {
         const id = req.params.id;
         console.log(id);
         const listing = await getListingById(id);
-        res.json(listing);
+        if (!listing){
+            return res.status(404).json({ message: "Propiedad no encontrada"})
+        } else {
+            res.json(listing);
+        }
     } catch (error) {
         console.log("Error fetching listing: ", error);
         res.status(500).json({ message: "Internal server error" });
     }
 };
+
+export const getListingsByCountry = async (req, res) => {
+    try {
+        const country = req.params.country;
+        const listings = await getListingsByCountryService(country);
+
+        return res.json(listings);
+    } catch (error) {
+        console.log("Error fetching listings: ", error);
+        res.status(500).json({ message: "Internal server error" })
+    }
+}
 
