@@ -26,9 +26,16 @@ export async function findListingById(id) {
     return listing;
 }
 
+export async function findListingsWithTotalPrice(id) {
+    const db = getDb();
+    const listing = await db.collection("listingsAndReviews").findOne({ _id: id });
+    console.log(listing);
+    return listing;
+}
+
 export async function findListingsByCountry(country) {
     const db = getDb();
-    const listing = await db.collection("listingsAndReviews").find({ "adress.country": country }).toArray();
+    const listing = await db.collection("listingsAndReviews").find({ "address.country": country }).toArray();
     console.log(listing);
     return listing;
 }

@@ -1,8 +1,8 @@
-import { getListings, getListingById, getListingsByCountry } from "../services/listingsService.js";
+import { getListings, getListingById, getListingsByCountry, getListingByTotalPrice} from "../services/listingsService.js";
 
 export const getAllListings = async (req, res) => {
     try {
-        const type = req.params.type;
+        const type = req.query.property_type;
         const page = req.query.page ? parseInt(req.query.page) : undefined;
         const pageSize = req.query.pageSize ? parseInt(req.query.pageSize) : undefined;
         
@@ -21,7 +21,7 @@ export const getListingId = async (req, res) => {
         const listing = await getListingById(id);
         if(!listing)
         {
-           res.status(404).json({ message: "Propiedad no ecnontrada" }); 
+           return res.status(404).json({ message: "Propiedad no ecnontrada" }); 
         }
         res.json(listing);
     } catch (error) {
@@ -40,6 +40,22 @@ export const getListingsCountry = async (req, res) => {
       
     } catch (error) {
         console.log("Error fetching listings: ", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+};
+
+export const getTotalPrice = async (req, res) => {
+    try {
+        const id = req.params.id;
+        console.log(id);
+        const listing = await getListingByTotalPrice(id);
+        if(!listing)
+        {
+           return res.status(404).json({ message: "Propiedad no ecnontrada" }); 
+        }
+        res.json(listing);
+    } catch (error) {
+        console.log("Error fetching listing: ", error);
         res.status(500).json({ message: "Internal server error" });
     }
 };

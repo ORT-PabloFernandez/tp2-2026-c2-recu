@@ -57,6 +57,7 @@ Si ya terminaste o son las 21:00 asegurate de seguir los siguientes pasos para l
 ### Endpoints de listings/propiedades:
 - GET /api/listings?pageSize=[pageSize]&page=[page] - Obtener todas las propiedades con paginación opcional
 - GET /api/listings/:id - Obtener una propiedad específica por ID
+- GET /api/listings/country/:country - Obtener propiedades filtradas por pais
 
 ### Endpoint base:
 - GET / - Mensaje de bienvenida de la API
