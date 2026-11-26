@@ -1,7 +1,12 @@
-import { findAllListings, findListingById } from "../data/listingsData.js";
+import { findAllListings, findListingById, findListingsByCountry} from "../data/listingsData.js";
 
-export const getListings = async (page, pageSize) => {
-    return await findAllListings(page, pageSize);
+export const getListingsByCountry = async (country) =>
+{
+    return await findListingsByCountry(country);
+}
+
+export const getListings = async (type, page, pageSize) => {
+    return await findAllListings(type, page, pageSize);
 }
 
 export const getListingById = async (id) => {

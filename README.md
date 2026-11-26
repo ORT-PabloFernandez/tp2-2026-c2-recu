@@ -10,13 +10,13 @@ Luego de abrir el correo encuentras un mail de tu Líder Técnico con tu primera
 
 > En el presente repositorío encontrarás un proyecto de nodejs que ya tiene codigo base del backend con el que vamos a trabajar. Te aconsejo que sigas los siguientes pasos para armar tu entorno de trabajo.
 
-> 1. Realizar un Fork del presente repositorio
-> 2. Realizar un clone del presente repositorio
-> 3. Instalar las dependencias
-> 4. Solicitar las variables de entorno que contiene la conexion string a mongodb (antes de preguntar, revisa el chat, seguro estan ahí)
-> 5. Ejecutar el servidor web de la api REST con el script de npm start-dev si queres trabajar con nodemon (tendrías que instalarlo) con start solo, tambien funciona.
+> 1. Realizar un Fork del presente repositorio -> OK
+> 2. Realizar un clone del presente repositorio -> OK
+> 3. Instalar las dependencias -> OK
+> 4. Solicitar las variables de entorno que contiene la conexion string a mongodb (antes de preguntar, revisa el chat, seguro estan ahí) -> OK
+> 5. Ejecutar el servidor web de la api REST con el script de npm start-dev si queres trabajar con nodemon (tendrías que instalarlo) con start solo, tambien funciona. -> OK
 >    El backend se conecta con una base de datos Mongodb en la cual se encuentra la base de datos **sample_airbnb** con una collection llamada **listingsAndReviews**, ahí se encuentran aprox. 5.600 publicaciones de propiedades.
-> 6. Proba el endpoint que ya se encuentra desarrollado: /api/listings debería retornar un json con 5.600 publicaciones. Sin embargo te aconsejo que uses el paginado que tiene para probar (mira la definición del end-point). Sí por algun motivo no llegase a funcionar, solicita asistencia.
+> 6. Proba el endpoint que ya se encuentra desarrollado: /api/listings debería retornar un json con 5.600 publicaciones. Sin embargo te aconsejo que uses el paginado que tiene para probar (mira la definición del end-point). Sí por algun motivo no llegase a funcionar, solicita asistencia. -> OK
 
 > ### TUS TAREAS SON LAS SIGUIENTES POR ORDEN DE PRIORIDAD
 >
