@@ -21,15 +21,11 @@ function toNumber(value) {
 
 export const getListingByTotalPrice =  async (id)=> {
 const listings = await findListingsWithTotalPrice(id);
+if(!listings)
+{ return null;
 
-return listings.map(listing => {
-    const totalPrice =
-        toNumber(listing.price) +
-        toNumber(listing.cleaning_fee) +
-        toNumber(listing.security_deposit) +
-        toNumber(listing.extra_people);
-
-    return { ...listing, totalPrice };
-
-});
 }
+const total= toNumber(listings.price) + toNumber(listings.cleaning_fee) ;
+return { _id: listings._id, name: listings.name, total}
+}
+
